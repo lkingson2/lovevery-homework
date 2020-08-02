@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2019_09_21_201540) do
     t.string "full_name", null: false
     t.date "birthdate", null: false
     t.string "parent_name", null: false
+    t.string "address", null: false
+    t.string "zipcode", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["full_name", "birthdate", "parent_name"], name: "index_children_on_full_name_and_birthdate_and_parent_name", unique: true
@@ -28,7 +30,12 @@ ActiveRecord::Schema.define(version: 2019_09_21_201540) do
     t.string "shipping_name", null: false
     t.string "address", null: false
     t.string "zipcode", null: false
+    t.string "billing_name", null: false
+    t.string "billing_address", null: false
+    t.string "billing_zipcode", null: false
     t.boolean "paid", null: false
+    t.string "order_type", null: false
+    t.string "order_message", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["child_id"], name: "index_orders_on_child_id"

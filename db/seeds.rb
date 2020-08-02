@@ -35,9 +35,37 @@ Order.find_or_create_by!(
   zipcode: "90210",
   user_facing_id: "890890908980980",
   paid: true,
+  order_type: "normal",
+  order_message: "",
+  billing_name: "Chris Smith",
+  billing_address: "123 Some Road",
+  billing_zipcode: "90210",
   child: Child.find_or_create_by!(
     full_name: "Chris Smith",
     birthdate: Date.new(2019,1,4),
-    parent_name: "Sammi Johnson"
+    parent_name: "Sammi Johnson",
+    address: "123 Some Road",
+    zipcode: "90210",
+  )
+)
+
+Order.find_or_create_by!(
+  product_id: product.id,
+  shipping_name: "Chris Smith",
+  address: "123 Some Road",
+  zipcode: "90210",
+  user_facing_id: "890890908980980",
+  paid: true,
+  order_type: "gift",
+  order_message: "This is a gift!",
+  billing_name: "Uncle Jack",
+  billing_address: "321 Some Road",
+  billing_zipcode: "90210",
+  child: Child.find_or_create_by!(
+    full_name: "Chris Smith",
+    birthdate: Date.new(2019,1,4),
+    parent_name: "Sammi Johnson",
+    address: "123 Some Road",
+    zipcode: "90210",
   )
 )

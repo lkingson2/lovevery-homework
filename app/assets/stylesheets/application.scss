@@ -26,12 +26,15 @@ $jumbotron-bg: white;
 $font-family-sans-serif: "Helvetica Neue", "helvetica", sans-serif;
 $body-color: #495057;
 
-@import "bootstrap/scss/bootstrap";
+@import "../../../node_modules/bootstrap/scss/bootstrap";
 
 .text-tracked {
   letter-spacing: 0.2rem;
 }
 
+.gift {
+  display: none;
+}
 
 .text-normal {
   color: #495057;

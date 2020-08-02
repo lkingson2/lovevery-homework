@@ -1,6 +1,10 @@
 <article class="p-3">
   <% if @order.paid? %>
-    <h1>Thanks for Your Order!</h1>
+    <% if @order.order_type.eql? 'gift' %>
+      <h1>Thanks for Your Gift Order!</h1>
+    <% else %>
+      <h1>Thanks for Your Order!</h1>
+    <% end %>
   <% else %>
     <h1>Problem with your order</h1>
   <% end %>
@@ -19,6 +23,9 @@
           Unable to charge <%= number_to_currency(@order.product.price_cents / 100) %>. Please contact us.
         <% end %>
       </p>
+      <% if @order.order_type.eql? 'gift' %>
+        <h2 class="card-title h4">Message: <span class="font-weight-normal h5"><%= @order.order_message %></span></h2>
+      <% end %>
     </div>
   </section>
 </article>
