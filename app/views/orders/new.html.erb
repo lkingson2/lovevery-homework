@@ -18,7 +18,9 @@
             $("#gift-message").hide();
             $("#gift-order-name").hide();
           }
-      }); 
+      });
+
+      $('#form_id').trigger("reset");
 
       if($('input[type="checkbox"]').is(':checked')){
         $("#gift-message").show();
@@ -33,7 +35,7 @@
 <h1 class="h2 text-center text-uppercase text-tracked">Check Out</h1>
 <h2 class="h4 mt-4"><%= @order.product.name %></h2>
 <h3 class="h5 font-weight-normal mb-3"><%= number_to_currency(@order.product.price_cents / 100) %></h3>
-<%= form_with model: @order, local: true  do |form| %>
+<%= form_with model: @order, id:"form_id", local: true  do |form| %>
   <div class="form-row">
     <div class="form-group col-md-12">
       <%= form.label :shipping_name, "Parent Name" %>
